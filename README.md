@@ -136,4 +136,33 @@ Ms SQL Server
             cursor  rowversion      hierarchyid uniqueidentifier    sql_variant 
             xml     table
 
+    Pivot:
+        SELECT (ColumnNames) /Write column names  
+        FROM (TableName) /table name  
+        PIVOT  
+        (   
+        AggregateFunction(Column To Be Aggregate)  
+        FOR PivotColumn IN (Pivot Column Value)  
+        ) AS (Alias) //Alias is a name of the table  
     
+    UnPivot:
+        SELECT (ColumnNames) /Name of column  
+        FROM (TableName)  
+        UNPIVOT  
+        (   
+        Aggregate Function (Column which is Aggregated)  
+        FOR Pivot Column IN (PivotColumnValues)  
+        ) AS (Alias)   
+
+    Index
+        CREATE INDEX index_name on table_name (column1, column2)  
+
+        DROP INDEX index_name  
+
+    Procedures
+        Create procedure <procedure_Name>   
+        As   
+        Begin   
+        <SQL Statement>   
+        End   
+        Go  
