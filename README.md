@@ -166,3 +166,12 @@ Ms SQL Server
         <SQL Statement>   
         End   
         Go  
+
+    Control Strucutres
+        BEGIN…END – create a statement block that consists of multiple Transact-SQL statements that execute together.
+        IF ELSE – execute a statement block based on a condition.
+        WHILE – repeatedly execute a set of statements based on a condition as long as the condition is true.
+        BREAK – exit the loop immediately and skip the rest of the code after it within a loop.
+        CONTINUE – skip the current iteration of the loop immediately and continue the next one.
+
+    
