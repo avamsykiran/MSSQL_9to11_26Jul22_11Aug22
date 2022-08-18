@@ -26,19 +26,13 @@ Ms SQL Server
         Triggers in SQL
         Instead of triggers
         Subqueries in SQL
-        DCL commands in SQL
-        Database backup for SQL server
-        Dynamic Query
         Cursors
 
         Performance
             Query Analysis
             Generate an Actual Execution Plan (Optimization)
-            Monitor Resource Usage
-            Identify Suspect Queries
             Fine Tuning Queries
-            Partitioned table
-            Indexing - Types & Concep
+          
 
     Lab Setup
     
@@ -174,4 +168,42 @@ Ms SQL Server
         BREAK – exit the loop immediately and skip the rest of the code after it within a loop.
         CONTINUE – skip the current iteration of the loop immediately and continue the next one.
 
-    
+    Cursors
+
+        DECLARE cursor_name CURSOR
+        FOR select_statement;
+
+        OPEN cursor_name;
+
+        FETCH NEXT FROM cursor_name INTO variable_list;
+
+        WHILE @@FETCH_STATUS = 0  
+        BEGIN
+           FETCH NEXT FROM cursor_name INTO variable_list; 
+        END;
+
+        CLOSE cursor_name;
+
+        DEALLOCATE cursor_name;
+
+    Triggers
+
+        CREATE TRIGGER trigger_name
+        ON table_name
+        AFTER  {[INSERT],[UPDATE],[DELETE]}
+        AS
+        {sql_statements}
+
+        Trigger Virtual Tables
+        DML event	INSERTED table holds	        DELETED table holds
+        INSERT	    rows to be inserted	            empty
+        UPDATE	    new rows modified by the update	existing rows modified by the update
+        DELETE	    empty	                        rows to be deleted
+
+        SET NOCOUNT ON; can be used to suppres the 'row count affected' message.
+
+        CREATE TRIGGER trigger_name
+        ON {table_name | view_name }
+        INSTEAD OF {[INSERT] [,] [UPDATE] [,] [DELETE] }
+        AS
+        {sql_statements}
